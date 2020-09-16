@@ -19,7 +19,6 @@
       pip:
         name: docker-py
         state: present
-        executable: pip-3.6
     - name: "Deploying my container"
       docker_container:
         name: VenkeyApp
