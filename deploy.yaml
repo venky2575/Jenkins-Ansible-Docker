@@ -1,5 +1,5 @@
 ---
-- host: deploynode
+- hosts: deploynode
   become: True
   tasks:
     - name: "Installing Python pip"
