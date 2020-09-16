@@ -2,10 +2,6 @@
 - hosts: deploynode
   become: True
   tasks:
-    - name: "Installing Python pip"
-      yum: 
-        name: python-pip
-        state: present
     - name: "Installing Docker"
       yum: 
         name: docker
@@ -15,10 +11,6 @@
         name: docker
         state: started
         enabled: yes
-    - name: "Dependenchy"
-      pip: 
-        name: docker-py
-        state: present
     - name: "Deploying my container"
       docker_container:
         name: VenkeyApp
