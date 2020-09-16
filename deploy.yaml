@@ -2,8 +2,12 @@
 - hosts: deploynode
   become: True
   tasks:
+    - name: "Installing Python pip"
+      yum:
+        name: python-pip
+        state: present
     - name: "Installing Docker"
-      yum: 
+      yum:
         name: docker
         state: present
     - name: "start docker"
@@ -11,6 +15,10 @@
         name: docker
         state: started
         enabled: yes
+    - name: "Dependenchy"
+      pip:
+        name: docker-py
+        state: present
     - name: "Deploying my container"
       docker_container:
         name: VenkeyApp
@@ -18,4 +26,3 @@
         state: started
         published_ports:
           - 0.0.0.0:8080:8080
-
