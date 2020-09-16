@@ -16,7 +16,7 @@
         state: started
         enabled: yes
     - name: "Dependenchy"
-      pip:
+      pip3:
         name: docker-py
         state: present
     - name: "Deploying my container"
