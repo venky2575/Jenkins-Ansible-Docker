@@ -1,0 +1,21 @@
+---
+- hosts: deploynode
+  become: yes
+  tasks:
+    - name: Installing python pip
+      yum: name: python3-pip, state: present
+    - name: installing docker
+      yum: name: docker, state: present
+    - name: start docker
+      service: name: docker, state: started, enabled: yes
+    - name: dependency
+      pip:
+        name: docker-py
+        state: present
+    - name: deploying my container
+      docker_container:
+        name: myapp
+        image: "venky2575/newpipeline:{{TAG}}"
+        state: started
+        published_ports:
+          - 0.0.0.0:8080:8080

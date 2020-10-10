@@ -1,2 +1,2 @@
 [deploynode]
-172.16.16.101 ansible_user=vagrant
+172.31.8.154 ansible_user=ec2-user
