@@ -3,11 +3,18 @@
   become: yes
   tasks:
     - name: Installing python pip
-      yum: name: python3-pip, state: present
+      yum: 
+        name: python3-pip
+        state: present
     - name: installing docker
-      yum: name: docker, state: present
+      yum: 
+        name: docker
+        state: present
     - name: start docker
-      service: name: docker, state: started, enabled: yes
+      service: 
+        name: docker
+        state: started
+        enabled: yes
     - name: dependency
       pip:
         name: docker-py
